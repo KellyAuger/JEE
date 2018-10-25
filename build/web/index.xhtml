@@ -1,0 +1,243 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Facelet Title</title>
+    </h:head>
+    <h:body>
+        <!-- Hello # {vue.valeur} -->
+        <!-- # {vue.liste} -->
+<!--        <p:dataList value="# {vue.vraiListe}" var="medecin" type="ordered"> 
+        <f:facet name="header">
+           Liste des médecins :
+        </f:facet>
+        # {medecin.idMedecin},# {medecin.nomM}, # {medecin.prenomM}, # {medecin.titre}, # {medecin.numeroTelephone}, # {medecin.photo}         
+        </p:dataList>
+        <br />
+        <br />
+        
+        <h:form>
+            Enregistrement Médecin (Nom, Prénom, Titre, Photo, NumeroTelephone ): <br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="# {vue.monMedecin.nomM}"> 
+            </h:inputText>
+            <h:inputText value="# {vue.monMedecin.prenomM}">  
+            </h:inputText> 
+            <h:inputText value="# {vue.monMedecin.titre}">   
+            </h:inputText>
+            <h:inputText value="# {vue.monMedecin.numeroTelephone}">   
+            </h:inputText>
+            <br />
+            <h:commandButton value="Enregistrer" action="# {vue.AddMedecin()}">   
+            </h:commandButton>
+        </h:form>
+   
+        <h:form>
+           <br /> Suppression Médecin (ID): <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="# {vue.id}"> 
+            </h:inputText>
+            <br />
+            <h:commandButton value="Supprimer" action="# {vue.DeleteMedecin()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+          <br /> Modifier des médecins : <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID du Médecins | Nom Médecin <br />
+            <h:inputText value="# {vue.idMed}"> 
+            </h:inputText>
+            <h:inputText value="# {vue.nouveauMedecin.nomM}"> 
+            </h:inputText>
+            <h:commandButton value="Modifier" action="# {vue.EditNomMedecin()}">   
+            </h:commandButton>
+        </h:form>
+        
+         <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID du Médecins | Prénom Médecin <br />
+            <h:inputText value="# {vue.idMed}"> 
+            </h:inputText>
+            <h:inputText value="# {vue.nouveauMedecin.prenomM}">  
+            </h:inputText> 
+             <h:commandButton value="Modifier" action="# {vue.EditPrenomMedecin()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" />
+            ID du Médecins | Titre Médecin <br />
+            <h:inputText value="# {vue.idMed}"> 
+            </h:inputText>
+            <h:inputText value="# {vue.nouveauMedecin.titre}">   
+            </h:inputText>
+             <h:commandButton value="Modifier" action="# {vue.EditTitreMedecin()}">   
+            </h:commandButton>
+        </h:form>-->
+        
+<!--         <p:dataList value="# {viewPatient.liste}" var="patient" type="ordered"> 
+        <f:facet name="header">
+           Liste des patients :
+        </f:facet>
+        # {patient.idPatient},# {patient.nomPatient}, # {patient.prenomPatient},        
+        </p:dataList>
+        <br />
+        <br />-->
+        <p:dataTable value="#{viewPatient.liste}" var="patient" >
+        <f:facet name="header">
+           Tableau des patients :
+        </f:facet>
+            <p:column headerText="ID Patient" >
+                <h:outputText value="#{patient.idPatient}" />
+            </p:column>
+            <p:column headerText="Nom Patient" >
+                <h:outputText value="#{patient.nomPatient}" />
+            </p:column>
+            <p:column headerText="Resultat Patient" >
+                <h:outputText value="#{patient.prenomPatient}" />
+            </p:column> 
+        </p:dataTable>
+        <br />
+        <br />
+        
+        <h:form>
+            Enregistrement Patient (Nom, Prénom ): <br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="#{viewPatient.monPatient.nomPatient}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.monPatient.prenomPatient}">  
+            </h:inputText> 
+            <br />
+            <h:commandButton value="Enregistrer" action="#{viewPatient.addPatient()}">   
+            </h:commandButton>
+        </h:form>
+   
+        <h:form>
+           <br /> Suppression Patient (ID): <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="#{viewPatient.id}"> 
+            </h:inputText>
+            <br />
+            <h:commandButton value="Supprimer" action="#{viewPatient.deletePatient()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+          <br /> Modifier des patients : <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID du Patient | Nom Patient <br />
+            <h:inputText value="#{viewPatient.idPat}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.nouveauPatient.nomPatient}"> 
+            </h:inputText>
+            <h:commandButton value="Modifier" action="#{viewPatient.editNomPatient()}">   
+            </h:commandButton>
+        </h:form>
+        
+         <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID du Patient | Prénom Patient <br />
+            <h:inputText value="#{viewPatient.idPat}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.nouveauPatient.prenomPatient}">  
+            </h:inputText> 
+            <h:commandButton value="Modifier" action="#{viewPatient.editPrenomPatient()}">   
+            </h:commandButton>
+        </h:form>
+        <br />
+<!--        <p:dataList value="# {viewPatient.listeExam}" var="examen" type="ordered"> 
+        <f:facet name="header">
+           Liste des examens :
+        </f:facet>
+        # {examen.idExamen},# {examen.nomE}, # {examen.resultats}, # {examen.idPatient}       
+        </p:dataList>-->
+        <p:dataTable value="#{viewPatient.listeExam}" var="examen" >
+        <f:facet name="header">
+           Tableau des examens :
+        </f:facet>
+            <p:column headerText="ID Examen" >
+                <h:outputText value="#{examen.idExamen}" />
+            </p:column>
+            <p:column headerText="Nom Examen" >
+                <h:outputText value="#{examen.nomE}" />
+            </p:column>
+            <p:column headerText="Resultat Examen" >
+                <h:outputText value="#{examen.resultats}" />
+            </p:column> 
+             <p:column headerText="ID Patient" >
+                 <h:outputText value="#{examen.idPatient.idPatient}" />
+            </p:column> 
+            <p:column headerText="Nom Patient" >
+                <h:outputText value="#{examen.idPatient.nomPatient}" />
+            </p:column> 
+            <p:column headerText="Prenom Patient" >
+                <h:outputText value="#{examen.idPatient.prenomPatient}" />
+            </p:column>
+        </p:dataTable>
+        <br />
+        <br />
+        <h:form>
+            Enregistrement Examen (Nom examen, Résultat, Nom Patient, Prenom Patient ): <br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="#{viewPatient.nouveauExamen.nomE}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.nouveauExamen.resultats}">  
+            </h:inputText> 
+            <h:inputText value="#{viewPatient.monPatient.nomPatient}">  
+            </h:inputText> 
+            <h:inputText value="#{viewPatient.monPatient.prenomPatient}">  
+            </h:inputText> 
+            <br />
+            <h:commandButton value="Enregistrer" action="#{viewPatient.addExamen()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+           <br /> Suppression Examen (ID): <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" />  
+            <h:inputText value="#{viewPatient.idExamenSupp}"> 
+            </h:inputText>
+            <br />
+            <h:commandButton value="Supprimer" action="#{viewPatient.deleteExamen()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+          <br /> Modifier des examens : <br /><br />
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID de l'examen | Nom Examen <br />
+            <h:inputText value="#{viewPatient.idExamenMod}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.nouveauExamen.nomE}"> 
+            </h:inputText>
+            <h:commandButton value="Modifier" action="#{viewPatient.editNomExamen()}">   
+            </h:commandButton>
+        </h:form>
+        
+         <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID de l'examen |Résultat Examen <br />
+            <h:inputText value="#{viewPatient.idExamenMod}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.nouveauExamen.resultats}">  
+            </h:inputText> 
+            <h:commandButton value="Modifier" action="#{viewPatient.editResultatExamen()}">   
+            </h:commandButton>
+        </h:form>
+        
+        <h:form>
+            <p:growl id="growl" showDetail="true" sticky="true" /> 
+            ID de l'examen| ID du patient <br />
+            <h:inputText value="#{viewPatient.idExamenMod}"> 
+            </h:inputText>
+            <h:inputText value="#{viewPatient.id}">  
+            </h:inputText> 
+            <h:commandButton value="Modifier" action="#{viewPatient.editIdPatientExam()}">   
+            </h:commandButton>
+        </h:form>
+    </h:body>
+</html>
